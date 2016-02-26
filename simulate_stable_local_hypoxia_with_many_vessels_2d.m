@@ -185,7 +185,7 @@ if output_results
     % create new results directory and copy this code into it
     path = strcat('/tmp/simulations/', ts);
     mkdir(path);
-    copyfile('gd.m', path);
+    copyfile('simulate_stable_local_hypoxia_with_many_vessels_2d.m', path);
     
 end
     

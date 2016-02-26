@@ -193,7 +193,7 @@ if output_results
     % create new results directory and copy this code into it
     path = strcat('/tmp/simulations/', ts);
     mkdir(path);
-    copyfile('gd.m', path);
+    copyfile('simulate_tumor_stroma_signaling_2d.m', path);
     
 end
     
