@@ -1,13 +1,15 @@
 %% plot cell types and save them to disk
 function [] = save_cell_types()
 
+global occupation mid_z cell_type_color_map num_iters tick path;
+
 % set up an invisible figure
 h = figure('Visible', 'off');
 
 % cell types (2-D slice)
 imagesc(occupation(:,:,mid_z), [1 size(cell_type_color_map,1)]);
 colormap(cell_type_color_map);
-external.freezeColors;
+freezeColors;
 set(gca, 'YDir', 'normal');
 axis square;
 title({'Cell Population' ['t=' num2str(tick)]});

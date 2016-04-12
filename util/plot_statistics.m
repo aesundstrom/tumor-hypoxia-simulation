@@ -1,6 +1,8 @@
 %% plot the statistics of interest
 function [] = plot_statistics()
 
+global num_cell_types num_particle_types occupation cell_type_color_map x_dim y_dim z_dim mid_z diameter_x diameter_y diameter_z tick wallclock plot_3d fitness_1 fitness_1_avg fitness_1_std fitness_n fitness_n_avg fitness_n_std population epc concentration output_results output_cell_types output_time_series output_local_fitness_3d output_local_fitness output_neighborhood_fitness output_particle_concentration;
+
 % define some useful constants
 gray_256    = grade([1 1 1], 256);
 num_rows    = 6;
@@ -19,7 +21,7 @@ clf;
 subplot(num_rows, num_cols, cursor);
 imagesc(occupation(:,:,mid_z), [1 size(cell_type_color_map,1)]);
 colormap(cell_type_color_map);
-external.freezeColors;
+freezeColors;
 set(gca, 'YDir', 'normal');
 axis square;
 cursor = cursor + 1;
@@ -31,7 +33,7 @@ wc     = wallclock(domain);
 wc_avg = mean(wc);
 wc_std = std(wc);
 plot(domain, wc);
-external.freezeColors;
+freezeColors;
 title(['avg=' sprintf('%3.3f', wc_avg) ', std=' sprintf('%3.3f', wc_std)]);
 axis square;
 cursor = cursor + 1;
@@ -64,7 +66,7 @@ for ct = ct_range
         if min_fit_ct < max_fit_ct
             caxis([min_fit_ct max_fit_ct]);
         end
-        external.cbfreeze(ch);
+        cbfreeze(ch);
         xlabel('x');
         ylabel('y');
         zlabel('z');
@@ -85,7 +87,7 @@ for ct = 1 : num_cell_types
     plot(1:tick, population(ct, 1:tick), 'color', cell_type_color_map(ct,:));
 end
 hold off;
-external.freezeColors;
+freezeColors;
 if tick > 1
     xlim([1 tick]);
 end
@@ -100,8 +102,8 @@ for ct = ct_range
     subplot(num_rows, num_cols, cursor);
     imagesc((occupation(:,:,mid_z) == ct) .* fitness_1(:,:,mid_z));
     colormap(grade(cell_type_color_map(ct,:), 256));
-    external.cbfreeze(colorbar);
-    external.freezeColors;
+    cbfreeze(colorbar);
+    freezeColors;
     set(gca, 'YDir', 'normal');
     axis square;
     cursor = cursor + 1;
@@ -121,8 +123,8 @@ for ct = ct_range
     subplot(num_rows, num_cols, cursor);
     imagesc((occupation(:,:,mid_z) > 1) .* fitness_n(:,:,mid_z,ct));
     colormap(grade(cell_type_color_map(ct,:), 256));
-    external.cbfreeze(colorbar);
-    external.freezeColors;
+    cbfreeze(colorbar);
+    freezeColors;
     set(gca, 'YDir', 'normal');
     axis square;
     cursor = cursor + 1;
@@ -160,7 +162,7 @@ for ct = 1 : num_cell_types
     plot(1:tick, epc(ct, 1:tick), 'color', cell_type_color_map(ct,:));
 end
 hold off;
-external.freezeColors;
+freezeColors;
 axis square;
 cursor = cursor + 1;
 

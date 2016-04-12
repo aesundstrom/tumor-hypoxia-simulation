@@ -1,4 +1,5 @@
 % global parameters
+global x_dim y_dim z_dim num_cell_types num_particle_types num_iters d_tau plot_every reproduce_every delay_occupation_by plot_3d;
 s_dim               = 40;     % symmetric dimension (used for convenience, when x, y, z dims are identical)
 x_dim               = s_dim;  % x dimension
 y_dim               = s_dim;  % y dimension
@@ -13,6 +14,7 @@ delay_occupation_by = 0;      % number of clock ticks before initializing cell t
 plot_3d             = 1;      % predicate for plotting 3D occupation per cell type
 
 % output predicates
+global output_results output_cell_types output_time_series 
 output_results                = 1;        % predicate for outputting plots (global switch for those below)
 output_cell_types             = 1;        % predicate for outputting cell types
 output_time_series            = 1;        % predicate for outputting time series

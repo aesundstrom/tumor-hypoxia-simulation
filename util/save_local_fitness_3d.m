@@ -1,6 +1,8 @@
 %% plot local fitness 3D and save them to disk
 function [] = save_local_fitness_3d(ct_range)
 
+global output_only_cell_types occupation fitness_1 cell_type_color_map x_dim y_dim z_dim tick num_iters path;
+
 % cell type 3D plot
 for ct = ct_range
     
@@ -34,7 +36,7 @@ for ct = ct_range
     if min_fit_ct < max_fit_ct
         caxis([min_fit_ct max_fit_ct]);
     end
-    external.cbfreeze(ch);
+    cbfreeze(ch);
     xlabel('x');
     ylabel('y');
     zlabel('z');

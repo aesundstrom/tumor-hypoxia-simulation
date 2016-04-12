@@ -5,6 +5,9 @@
 %  b: begin time         (integer)
 %  e: end time           (integer)
 function [] = plot_time_series(a, s, c, b, e)
+
+global tick;
+
 domain = b : e;
 gray = [0.9 0.9 0.9];
 hold on;
@@ -13,9 +16,10 @@ for t = 1 : size(a,1)
     plot(domain, a(t,domain), 'color', c(t,:));
 end
 hold off;
-external.freezeColors;
+freezeColors;
 if tick > 1
     xlim([1 tick]);
 end;
+
 end  % function plot_time_series
 
