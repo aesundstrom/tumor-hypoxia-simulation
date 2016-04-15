@@ -1,8 +1,8 @@
 function [] = simulator()
 
-%% load operating parameters
+%% initialize operating parameters
 
-load_operating_parameters;
+initialize_operating_parameters;
 
 %% declare parameters and data structures
 
@@ -91,8 +91,9 @@ end
 
 %% simulation loop
 
+global tick;
 for tick = 1 : num_iters
-    
+
     %% prologue
     
     % set the timer for this tick
