@@ -1,4 +1,5 @@
 %% plot local fitness 3D and save them to disk
+
 function [] = save_local_fitness_3d(ct_range)
 
 global output_only_cell_types occupation fitness_1 cell_type_color_map x_dim y_dim z_dim tick num_iters path;

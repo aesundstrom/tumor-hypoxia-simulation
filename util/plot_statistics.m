@@ -1,4 +1,5 @@
 %% plot the statistics of interest
+
 function [] = plot_statistics()
 
 global num_cell_types num_particle_types occupation cell_type_color_map x_dim y_dim z_dim mid_z diameter_x diameter_y diameter_z tick wallclock plot_3d fitness_1 fitness_1_avg fitness_1_std fitness_n fitness_n_avg fitness_n_std population epc concentration output_results output_cell_types output_time_series output_local_fitness_3d output_local_fitness output_neighborhood_fitness output_particle_concentration;
@@ -230,4 +231,3 @@ end
     end  % function pad_cursor
 
 end  % function plot_statistics
-

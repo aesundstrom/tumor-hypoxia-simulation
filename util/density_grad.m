@@ -6,7 +6,9 @@
 %  d_beg: domain lower bound
 %  d_end: domain upper bound
 %  dir  : direction of gradient (3-element binary vector)
+
 function [dm] = density_grad(xd, yd, zd, f, d_beg, d_end, dir)
+
 dm = [];
 
 domain = linspace(d_beg,d_end,xd);
@@ -56,5 +58,5 @@ elseif isequal(dir, [1 1 0])
 elseif isequal(dir, [1 1 1])
     dm = dx & dy & dz;
 end
-end  % function density_grad
 
+end  % function density_grad

@@ -1,4 +1,5 @@
 %% plot cell types and save them to disk
+
 function [] = save_cell_types()
 
 global occupation mid_z cell_type_color_map num_iters tick path;

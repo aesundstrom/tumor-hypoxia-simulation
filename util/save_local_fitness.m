@@ -1,4 +1,5 @@
 %% plot local fitness and save them to disk
+
 function [] = save_local_fitness(ct_range)
 
 global output_only_cell_types occupation mid_z fitness_1 cell_type_color_map tick num_iters path;

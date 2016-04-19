@@ -1,4 +1,5 @@
 %% plot neighborhood fitness and save them to disk
+
 function [] = save_neighborhood_fitness(ct_range)
 
 global output_only_cell_types occupation fitness_n cell_type_color_map tick num_iters path;

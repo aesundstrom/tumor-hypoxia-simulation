@@ -1,4 +1,5 @@
 %% plot particle concentration and save them to disk
+
 function [] = save_particle_concentration(gray_256, pt_range)
 
 global x_dim y_dim path tick;

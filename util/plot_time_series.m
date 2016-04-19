@@ -4,6 +4,7 @@
 %  c: color map          (m time series x 3 {r,g,b})
 %  b: begin time         (integer)
 %  e: end time           (integer)
+
 function [] = plot_time_series(a, s, c, b, e)
 
 global tick;
