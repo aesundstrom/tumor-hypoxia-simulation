@@ -3,14 +3,27 @@ tumor-hypoxia-simulation
 
 Matlab code for simulating tumor hypoxia and other cell-population-level phenomena, as featured in the manuscript "Simulating Heterogeneous Tumor Cell Populations".
 
-There are four functions, corresponding to the four featured phenomena -- the filenames are self-explanatory:
+There are four simulation configurations, corresponding to the four featured phenomena, and they are stored in the following subdirectories:
 
-    simulate_metabolic_symbiosis_2d.m
-    simulate_stable_local_hypoxia_with_many_vessels_2d.m
-    simulate_stable_local_hypoxia_with_many_vessels_3d.m
-    simulate_tumor_stroma_signaling_2d.m
-    
-These functions have the following dependencies:
+    metabolic_symbiosis_2d/
+    stable_local_hypoxia_with_many_vessels_2d/
+    stable_local_hypoxia_with_many_vessels_3d/
+    tumor_stroma_signaling_2d/
+
+Each of these subdirectories contains two configuration files:
+
+    initialize_occupation_pattern.m    -- Initializes the cell occupation matrix with desired initial cell population.
+    initialize_operating_parameters.m  -- Initializes the operating parameters for the simulation with desired values.
+
+To run a simulation:
+
+    In Matlab, change to this repository directory, or add it to your Matlab path.
+    At the Matlab command line, type "simulate( '<simulation name>' )", where <simulation name> is one of the four subdirectory names above.
+        e.g. "simulate( 'stable_local_hypoxia_with_many_vessels_3d' )"
+
+Runtime explanation:
+
+The simulator uses functions stored in the util/ subdirectory; in addition, the simulator has the following external dependencies:
 
     1. David Legland's imMinkowski module available from the Mathworks File Exchange:
        http://www.mathworks.com/matlabcentral/fileexchange/33690-geometric-measures-in-2d3d-images/all_files
@@ -24,4 +37,6 @@ These functions have the following dependencies:
        http://www.mathworks.com/matlabcentral/fileexchange/24371-colormap-and-colorbar-utilities--jul-2014-
        functions used: cbfreeze, cbhandle
     
-For convenience, I've placed a copy of the imEuler2d, imEuler3d, freezeColors, cbfreeze, and cbhandle functions in the code path.
+For convenience, I've placed a copy of the imEuler2d, imEuler3d, freezeColors, cbfreeze, and cbhandle functions in the external/ subdirectory.
+
+The simulate.m function binds the simulator (simulator.m) to the util/ and external/ functions, and to the appropriate configuration data, by adding the util/ and external/ subdirectories, and the subdirectory named by the argument passed to simulate.m, respectively, to your Matlab path for the duration of the simulation; after the simulation terminates (by completion, ctrl-c interrupt, or an error) simulate.m removes the three subdirectories from your Matlab path.
