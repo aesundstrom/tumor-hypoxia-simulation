@@ -5,21 +5,21 @@ Matlab code for simulating tumor hypoxia and other cell-population-level phenome
 
 There are four simulation configurations, corresponding to the four featured phenomena, and they are stored in the following subdirectories:
 
-    metabolic_symbiosis_2d/
-    stable_local_hypoxia_with_many_vessels_2d/
-    stable_local_hypoxia_with_many_vessels_3d/
-    tumor_stroma_signaling_2d/
+    1. metabolic_symbiosis_2d/
+    2. stable_local_hypoxia_with_many_vessels_2d/
+    3. stable_local_hypoxia_with_many_vessels_3d/
+    4. tumor_stroma_signaling_2d/
 
 Each of these subdirectories contains two configuration files:
 
-    initialize_occupation_pattern.m    -- Initializes the cell occupation matrix with desired initial cell population.
-    initialize_operating_parameters.m  -- Initializes the operating parameters for the simulation with desired values.
+    1. initialize_occupation_pattern.m    -- Initializes the cell occupation matrix with desired initial cell population.
+    2. initialize_operating_parameters.m  -- Initializes the operating parameters for the simulation with desired values.
 
 To run a simulation:
 
-    In Matlab, change to this repository directory, or add it to your Matlab path.
-    At the Matlab command line, type "simulate( '<simulation name>' )", where <simulation name> is one of the four subdirectory names above.
-        e.g. "simulate( 'stable_local_hypoxia_with_many_vessels_3d' )"
+    1. In Matlab, change to this repository directory, or add it to your Matlab path.
+    2. At the Matlab command line, type "simulate( '<simulation name>' )", where <simulation name> is one of the four subdirectory names above.
+       e.g. "simulate( 'stable_local_hypoxia_with_many_vessels_3d' )"
 
 Runtime explanation:
 
