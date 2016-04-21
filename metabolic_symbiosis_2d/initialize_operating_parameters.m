@@ -7,9 +7,9 @@ z_dim               = 1;      % z dimension
 num_cell_types      = 4;      % number of cell types
 num_particle_types  = 3;      % number of particle types
 num_iters           = 1000;   % number of simulation clock ticks
-d_tau               = 1;      % time scale separation paremeter
-plot_every          = 1;      % number of clock ticks between plottings
-reproduce_every     = 1;      % number of clock ticks between probablilistic reproductions
+d_tau               = 1;      % time scale separation parameter
+plot_every          = 1;      % number of clock ticks between plots
+reproduce_every     = 1;      % number of clock ticks between probabilistic reproductions
 delay_occupation_by = 0;      % number of clock ticks before initializing cell type occupations (used to establish gradients prior to exposing cells)
 plot_3d             = 1;      % predicate for plotting 3D occupation per cell type
 
@@ -97,7 +97,7 @@ cell_type_color_map = [1    1    1;   % vessel (white)
 %     {a}        0
 %     {j,-,+}    1
 %     {c,r,i}    2
-% example conditional trigers and actions:
+% example conditional triggers and actions:
 %     conditionals(n) = { { { {t1} {t2} {t3} } { {a1} {a2}      } }
 %                         { { {t1} {t2}      } { {a1} {a2} {a3} } }
 %                       };
