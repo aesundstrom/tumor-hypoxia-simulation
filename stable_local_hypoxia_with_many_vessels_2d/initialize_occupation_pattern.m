@@ -1,4 +1,4 @@
-%% initialize occupation pattern
+% initialize occupation pattern
 occupation(:,     :,     :    ) = 2;  % initialize with empty cells
 occupation(mid_x, mid_y, mid_z) = 3;  % place an alpha smack in the middle
 for i = 1 : 10  % randomly place 10 vessels

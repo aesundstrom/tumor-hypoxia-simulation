@@ -1,4 +1,4 @@
-%% initialize occupation pattern
+% initialize occupation pattern
 rg = density_grad(x_dim, mid_mid_y-1, 1, @(x) x.^7, 0.0, 0.8, [1 0 0]);
 rg(rg == 1) = 4;
 rg(rg == 0) = 6;
