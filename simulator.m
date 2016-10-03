@@ -81,11 +81,10 @@ if output_results
     end
     ts = sprintf('%s_%s_%s__%s_%s_%s', years, months, days, hours, minutes, seconds);
     
-    % create new results directory and copy this code into it
+    % create new results directory
     global path;
     path = strcat('/tmp/simulations/', ts);
     mkdir(path);
-    copyfile('simulate_metabolic_symbiosis_2d.m', path);
 
 end
 
