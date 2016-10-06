@@ -30,4 +30,3 @@ saveas(gcf, fig_file, 'pdf');
 close(h);
 
 end  % function save_cell_types
-

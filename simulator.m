@@ -6,6 +6,9 @@ initialize_operating_parameters;
 
 %% declare parameters and data structures
 
+% get the name of the simulation from the calling function
+global simulation_name;
+
 % define essential simulation arrays
 global occupation concentration impact_factor_cond replaceable_cond reproductive_cond fitness_1 fitness_n;
 occupation          = zeros(x_dim, y_dim, z_dim);                      % cell types
@@ -79,7 +82,7 @@ if output_results
     if length(seconds) == 1
         seconds = strcat('0', seconds);
     end
-    ts = sprintf('%s_%s_%s__%s_%s_%s', years, months, days, hours, minutes, seconds);
+    ts = sprintf('%s__%s_%s_%s__%s_%s_%s', simulation_name, years, months, days, hours, minutes, seconds);
     
     % create new results directory
     global path;
@@ -483,5 +486,17 @@ for tick = 1 : num_iters
     wallclock(tick) = toc;
     
 end  % for tick
+
+if output_results
+
+    % create occupation data file name and save occupation data
+    occ_data_file = strcat(path, '/', 'occupation.txt');
+    dlmwrite(occ_data_file, occupation);
+    
+    % create population data file name and save population data
+    pop_data_file = strcat(path, '/', 'population.txt');
+    dlmwrite(pop_data_file, population);
+    
+end
 
 end  % function simulator

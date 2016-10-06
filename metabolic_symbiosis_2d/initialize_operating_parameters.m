@@ -6,20 +6,20 @@ y_dim               = s_dim;  % y dimension
 z_dim               = 1;      % z dimension
 num_cell_types      = 4;      % number of cell types
 num_particle_types  = 3;      % number of particle types
-num_iters           = 1000;   % number of simulation clock ticks
+num_iters           = 100;    % number of simulation clock ticks
 d_tau               = 1;      % time scale separation parameter
 plot_every          = 1;      % number of clock ticks between plots
 reproduce_every     = 1;      % number of clock ticks between probabilistic reproductions
 delay_occupation_by = 0;      % number of clock ticks before initializing cell type occupations (used to establish gradients prior to exposing cells)
-plot_3d             = 1;      % predicate for plotting 3D occupation per cell type
+plot_3d             = 0;      % predicate for plotting 3D occupation per cell type
 
 % output predicates
 global output_results output_cell_types output_time_series output_local_fitness_3d output_local_fitness output_neighborhood_fitness output_particle_concentration output_only_cell_types output_only_particle_types;
 output_results                = 1;        % predicate for outputting plots (global switch for those below)
 output_cell_types             = 1;        % predicate for outputting cell types
 output_time_series            = 1;        % predicate for outputting time series
-output_local_fitness_3d       = 1;        % predicate for outputting local fitness in 3D
-output_local_fitness          = 1;        % predicate for outputting local fitness
+output_local_fitness_3d       = 0;        % predicate for outputting local fitness in 3D
+output_local_fitness          = 0;        % predicate for outputting local fitness
 output_neighborhood_fitness   = 0;        % predicate for outputting neighborhood fitness
 output_particle_concentration = 0;        % predicate for outputting particle concentration
 output_only_cell_types        = [3 4];    % subset of cell types to output
