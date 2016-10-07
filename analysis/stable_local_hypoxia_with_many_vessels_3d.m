@@ -109,17 +109,59 @@ for sim_idx = sim_set
         j = edge_keep_j{sim_idx}(vessel_idx);
         k = edge_keep_k{sim_idx}(vessel_idx);
         seen{sim_idx} = zeros( x_dim, y_dim, z_dim );
-        v_34 = volume_3_or_4(sim_idx, i, j, k);
+        v_34 = volume_3_or_4(sim_idx, i, j, k) - 1;
         seen{sim_idx} = zeros( x_dim, y_dim, z_dim );
-        v_3 = volume_3(sim_idx, i, j, k);
+        v_3 = volume_3(sim_idx, i, j, k) - 1;
         volume_ct_34{sim_idx}(numel(volume_ct_34{sim_idx})+1) = v_34;
         volume_ct_3{sim_idx}(numel(volume_ct_3{sim_idx})+1) = v_3;
         fprintf('\tV_34(%d,%d,%d) = %d\n', i, j, k, v_34);
         fprintf('\tV_3(%d,%d,%d) = %d\n', i, j, k, v_3);
     end
 
-    
 end
+
+% output numerical results
+
+fprintf('\nResults:\n\n');
+num_results = 0;
+result_34 = [];
+result_3 = [];
+for sim_idx = sim_set
+    edge_keep_set = 1 : numel(edge_keep_i{sim_idx});
+    for vessel_idx = edge_keep_set
+        i = edge_keep_i{sim_idx}(vessel_idx);
+        j = edge_keep_j{sim_idx}(vessel_idx);
+        k = edge_keep_k{sim_idx}(vessel_idx);
+        v_34 = volume_ct_34{sim_idx}(vessel_idx);
+        v_3 = volume_ct_3{sim_idx}(vessel_idx);
+        fprintf('%d,%d,%d,%d,%d,%d\n', sim_idx, i, j, k, v_34, v_3);
+        num_results = num_results + 1;
+        result_34(num_results) = v_34;
+        result_3(num_results) = v_3;
+    end
+end
+
+median_v_34 = median(result_34);
+median_v_3 = median(result_3);
+result_v_34_mask = result_34 < 2 * median_v_34;
+result_v_3_mask = result_3 < 2 * median_v_3;
+mean_v_34 = mean(result_34(result_v_34_mask));
+mean_v_3 = mean(result_3(result_v_3_mask));
+std_v_34 = std(result_34(result_v_34_mask));
+std_v_3 = std(result_3(result_v_3_mask));
+cv_v_34 = std_v_34 / mean_v_34;
+cv_v_3 = std_v_3 / mean_v_3;
+mean_r_34 = mean((result_34(result_v_34_mask) ./ (4*pi/3)).^1/3);
+mean_r_3 = mean((result_3(result_v_3_mask) ./ (4*pi/3)).^1/3);
+std_r_34 = std((result_34(result_v_34_mask) ./ (4*pi/3)).^1/3);
+std_r_3 = std((result_3(result_v_3_mask) ./ (4*pi/3)).^1/3);
+cv_r_34 = std_r_34 / mean_r_34;
+cv_r_3 = std_r_3 / mean_r_3;
+fprintf('\nSummary (N=%d,%d):\n\n', num_results, sum(result_v_34_mask));
+fprintf('A_34: %f, %f, %f\n', mean_v_34, std_v_34, cv_v_34);
+fprintf('A_3: %f, %f, %f\n', mean_v_3, std_v_3, cv_v_3);
+fprintf('r_34: %f, %f, %f\n', mean_r_34, std_r_34, cv_r_34);
+fprintf('r_3: %f, %f, %f\n', mean_r_3, std_r_3, cv_r_3);
 
 %
 % analyze population
@@ -154,7 +196,7 @@ plot( avg_pop_3', 'r', 'LineWidth', 4);
 plot( avg_pop_4', 'g', 'LineWidth', 4);
 plot( avg_pop_5', 'Color', orange, 'LineWidth', 4);
 hold off;
-title( 'Population Size Versus Time' );
+title( 'Population Size Versus Time over 10 Simulations' );
 xlabel( 'time' );
 ylabel( 'number of cells' );
 
@@ -178,7 +220,7 @@ plot( std_pop_3', 'r' );
 plot( std_pop_4', 'g' );
 plot( std_pop_5', 'Color', orange );
 hold off;
-title( 'Standard Deviation in Population Size Versus Time' );
+title( 'Standard Deviation in Population Size Versus Time over 10 Simulations' );
 xlabel( 'time' );
 ylabel( 'number of cells' );
 
@@ -194,6 +236,6 @@ plot( var_pop_3', 'r' );
 plot( var_pop_4', 'g' );
 plot( var_pop_5', 'Color', orange );
 hold off;
-title( 'Coefficient of Variation in Population Size Versus Time' );
+title( 'Coefficient of Variation in Population Size Versus Time over 10 Simulations' );
 xlabel( 'time' );
 ylabel( 'CV' );

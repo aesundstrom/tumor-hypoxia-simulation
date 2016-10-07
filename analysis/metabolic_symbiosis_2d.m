@@ -74,7 +74,7 @@ end
 % compute and show the standard deviation in the magnitude of the fft
 std_mag_occ = sqrt( ssd_mag_occ / num_sims );
 figure; imshow(std_mag_occ, []); colormap gray; colorbar;
-title( strcat( 'Standard Deviation in FFT2 Magnitude (over 10 Simulations' ) );
+title( strcat( 'Standard Deviation in FFT2 Magnitude over 10 Simulations' ) );
 
 % compute and show the coefficient of variation in the magnitude of the fft
 var_mag_occ = std_mag_occ ./ avg_mag_occ;
@@ -106,7 +106,7 @@ avg_pop_4 = sum_pop_4 / num_sims;
 plot( avg_pop_3', 'r', 'LineWidth', 4);
 plot( avg_pop_4', 'g', 'LineWidth', 4);
 hold off;
-title( 'Population Size Versus Time' );
+title( 'Population Size Versus Time over 10 Simulations' );
 xlabel( 'time' );
 ylabel( 'number of cells' );
 
@@ -126,7 +126,7 @@ hold on;
 plot( std_pop_3', 'r' );
 plot( std_pop_4', 'g' );
 hold off;
-title( 'Standard Deviation in Population Size Versus Time' );
+title( 'Standard Deviation in Population Size Versus Time over 10 Simulations' );
 xlabel( 'time' );
 ylabel( 'number of cells' );
 
@@ -140,6 +140,6 @@ hold on;
 plot( var_pop_3', 'r' );
 plot( var_pop_4', 'g' );
 hold off;
-title( 'Coefficient of Variation in Population Size Versus Time' );
+title( 'Coefficient of Variation in Population Size Versus Time over 10 Simulations' );
 xlabel( 'time' );
 ylabel( 'CV' );

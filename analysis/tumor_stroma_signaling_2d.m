@@ -57,7 +57,7 @@ end
 avg_pop_5 = sum_pop_5 / num_sims;
 plot( avg_pop_5', 'Color', orange, 'LineWidth', 4);
 hold off;
-title( 'Population Size Versus Time' );
+title( 'Population Size Versus Time over 10 Simulations' );
 xlabel( 'time' );
 ylabel( 'number of cells' );
 
@@ -73,7 +73,7 @@ figure;
 hold on;
 plot( std_pop_5', 'Color', orange );
 hold off;
-title( 'Standard Deviation in Population Size Versus Time' );
+title( 'Standard Deviation in Population Size Versus Time over 10 Simulations' );
 xlabel( 'time' );
 ylabel( 'number of cells' );
 
@@ -85,6 +85,6 @@ figure;
 hold on;
 plot( var_pop_5', 'Color', orange );
 hold off;
-title( 'Coefficient of Variation in Population Size Versus Time' );
+title( 'Coefficient of Variation in Population Size Versus Time over 10 Simulations' );
 xlabel( 'time' );
 ylabel( 'CV' );
