@@ -10,7 +10,7 @@ sim_set  = 1 : num_sims;
 
 % load the simulation occupation and population data
 
-path = '~/Desktop/simulations/metabolic_symbiosis_2d';
+path = '../simulations/metabolic_symbiosis_2d';
 for sim_idx = sim_set
     
     ext_path = strcat( path, '/', num2str( sim_idx-1 ) );

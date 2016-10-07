@@ -15,7 +15,7 @@ pair_margin = 8;
 
 % load the simulation occupation and population data
 
-path = '~/Desktop/simulations/stable_local_hypoxia_with_many_vessels_3d';
+path = '../simulations/stable_local_hypoxia_with_many_vessels_3d';
 for sim_idx = sim_set
     
     ext_path = strcat( path, '/', num2str( sim_idx-1 ) );
