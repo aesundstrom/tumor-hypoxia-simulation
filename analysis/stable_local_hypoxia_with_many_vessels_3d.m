@@ -158,8 +158,8 @@ std_r_3 = std((result_3(result_v_3_mask) ./ (4*pi/3)).^1/3);
 cv_r_34 = std_r_34 / mean_r_34;
 cv_r_3 = std_r_3 / mean_r_3;
 fprintf('\nSummary (N=%d,%d):\n\n', num_results, sum(result_v_34_mask));
-fprintf('A_34: %f, %f, %f\n', mean_v_34, std_v_34, cv_v_34);
-fprintf('A_3: %f, %f, %f\n', mean_v_3, std_v_3, cv_v_3);
+fprintf('V_34: %f, %f, %f\n', mean_v_34, std_v_34, cv_v_34);
+fprintf('V_3: %f, %f, %f\n', mean_v_3, std_v_3, cv_v_3);
 fprintf('r_34: %f, %f, %f\n', mean_r_34, std_r_34, cv_r_34);
 fprintf('r_3: %f, %f, %f\n', mean_r_3, std_r_3, cv_r_3);
 
