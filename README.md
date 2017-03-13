@@ -1,7 +1,7 @@
 tumor-hypoxia-simulation
 ========================
 
-Matlab code for simulating tumor hypoxia and other cell-population-level phenomena, as featured in the manuscript "Simulating Heterogeneous Tumor Cell Populations".
+Matlab code for simulating tumor hypoxia and other cell-population-level phenomena, as featured in the PLoS ONE article "Simulating heterogeneous tumor cell populations" (http://dx.doi.org/10.1371/journal.pone.0168984).
 
 There are four simulation configurations, corresponding to the four featured phenomena, and they are stored in the following subdirectories:
 
